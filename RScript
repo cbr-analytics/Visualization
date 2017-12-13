@@ -1,0 +1,710 @@
+
+
+# Housing Price Kaggle problem data visulaization to explore data
+# Data can be found in the Visulization folder
+
+library(tidyverse)
+
+data.train <- read_csv("train.csv")
+names(data.train)
+
+# Does kitchen quality affects house price? [Y]
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = LotArea, y = SalePrice, color = KitchenQual))+
+  geom_smooth(mapping = aes(x = LotArea, y = SalePrice))
+
+# Does LotFronyAge affects house price? [Y]
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = LotFrontage, y = SalePrice))
+
+#Does MSSubClass affects housr price? [Y]
+str(data.train$MSSubClass)
+data.train$MSSubClass <- as.factor(data.train$MSSubClass)
+## Change the variable as factor to plot color fill
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = MSSubClass, fill= MSSubClass))
+  
+# Does MSZoning affect House Price? [Categorical variable] 
+str(data.train$MSZoning)
+data.train$MSZoning <- as.factor(data.train$MSZoning)
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = MSZoning, fill= MSZoning))
+
+# Does Street affect House Price? [Categorical variable] 
+str(data.train$Street)
+data.train$Street <- as.factor(data.train$Street)
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Street, fill= Street))
+
+# Does Alley affect House Price? [Categorical variable] 
+str(data.train$Alley)
+table(data.train$Alley)
+data.train$Alley <- as.factor(data.train$Alley)
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Alley, fill= Alley))
+# Imputing NA -> No alley access: change it to None
+data.train$Alley <- as.character(data.train$Alley)
+data.train$Alley[is.na(data.train$Alley)] <- 0
+
+
+# Does LotShape affect House Price? [Categorical variable] 
+str(data.train$LotShape)
+table(data.train$LotShape)
+data.train$LotShape <- as.factor(data.train$LotShape)
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = LotShape, fill= LotShape))
+
+# Does LotShape affect House Price? [Categorical variable] 
+str(data.train$LotShape)
+table(data.train$LotShape)
+data.train$LotShape <- as.factor(data.train$LotShape)
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = LotShape, fill= LotShape))
+
+# Does LandContour affect House Price? [Categorical variable] 
+str(data.train$LandContour)
+table(data.train$LandContour)
+data.train$LandContour <- as.factor(data.train$LandContour)
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = LandContour, fill= LandContour))
+
+
+# Does Utilities affect House Price? [Categorical variable] 
+str(data.train$Utilities)
+table(data.train$Utilities)
+data.train$Utilities <- as.factor(data.train$Utilities)
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Utilities, fill= Utilities))
+
+
+# Does LotConfig affect House Price? [Categorical variable] 
+str(data.train$LotConfig)
+table(data.train$LotConfig)
+data.train$LotConfig <- as.factor(data.train$LotConfig)
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = LotConfig, fill= LotConfig))
+
+# Does LandSlope affect House Price? [Categorical variable] 
+str(data.train$LandSlope)
+table(data.train$LandSlope)
+data.train$LandSlope <- as.factor(data.train$LandSlope)
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = LandSlope, fill= LandSlope))
+
+# Does Neighborhood affect House Price? [Categorical variable] 
+str(data.train$Neighborhood)
+table(data.train$Neighborhood)
+data.train$Neighborhood <- as.factor(data.train$Neighborhood)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Neighborhood, fill= Neighborhood))
+
+# Does Condition1 affect House Price? [Categorical variable] 
+str(data.train$Condition1)
+table(data.train$Condition1)
+data.train$Condition1 <- as.factor(data.train$Condition1)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Condition1, fill= Condition1))
+
+# Does Condition2 affect House Price? [Categorical variable] 
+str(data.train$Condition2)
+table(data.train$Condition2)
+data.train$Condition2 <- as.factor(data.train$Condition2)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Condition2, fill= Condition2))
+
+
+# Does BldgType affect House Price? [Categorical variable] 
+str(data.train$BldgType)
+table(data.train$BldgType)
+data.train$BldgType <- as.factor(data.train$BldgType)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = BldgType, fill= BldgType))
+
+# Does BldgType affect House Price? [Categorical variable] 
+str(data.train$BldgType)
+table(data.train$BldgType)
+data.train$BldgType <- as.factor(data.train$BldgType)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = BldgType, fill= BldgType))
+
+
+# Does HouseStyle affect House Price? [Categorical variable] 
+str(data.train$HouseStyle)
+table(data.train$HouseStyle)
+data.train$HouseStyle <- as.factor(data.train$HouseStyle)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = HouseStyle, fill= HouseStyle))
+
+# Does OverallQual affect House Price? [Categorical variable] 
+str(data.train$OverallQual)
+table(data.train$OverallQual)
+data.train$OverallQual <- as.factor(data.train$OverallQual)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = OverallQual, fill= OverallQual))
+
+# Does OverallCond affect House Price? [Categorical variable] 
+str(data.train$OverallCond)
+table(data.train$OverallCond)
+data.train$OverallCond <- as.factor(data.train$OverallCond)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = OverallCond, fill= OverallCond))
+
+# Does YearBuilt affect House Price? [Categorical variable] 
+str(data.train$YearBuilt)
+table(data.train$YearBuilt)
+
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = YearBuilt, fill= BldgType))
+
+
+# Does YearRemodAdd affect House Price? [Categorical variable] 
+str(data.train$YearRemodAdd)
+table(data.train$YearRemodAdd)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = YearRemodAdd, fill= BldgType))
+
+
+# Does YearRemodAdd affect House Price? [Categorical variable] 
+str(data.train$RoofStyle)
+table(data.train$RoofStyle)
+data.train$RoofStyle <- as.factor(data.train$RoofStyle)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = RoofStyle, fill= BldgType))
+
+# Does RoofMatl affect House Price? [Categorical variable] 
+str(data.train$RoofMatl)
+table(data.train$RoofMatl)
+data.train$RoofMatl <- as.factor(data.train$RoofMatl)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = RoofMatl, fill= RoofMatl))
+
+# Does Exterior1st affect House Price? [Categorical variable] 
+str(data.train$Exterior1st)
+table(data.train$Exterior1st)
+data.train$Exterior1st <- as.factor(data.train$Exterior1st)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Exterior1st, fill= Exterior1st))
+
+# Does Exterior2nd affect House Price? [Categorical variable] 
+str(data.train$Exterior2nd)
+table(data.train$Exterior2nd)
+data.train$Exterior2nd <- as.factor(data.train$Exterior2nd)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Exterior2nd, fill= Exterior2nd))
+
+# Does MasVnrType affect House Price? [Categorical variable] 
+str(data.train$MasVnrType)
+table(data.train$MasVnrType)
+data.train$MasVnrType <- as.factor(data.train$MasVnrType)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = MasVnrType, fill= MasVnrType))
+
+
+# Does MasVnrArea affect House Price? [Categorical variable] 
+str(data.train$MasVnrArea)
+table(data.train$MasVnrArea)
+data.train$MasVnrArea <- as.factor(data.train$MasVnrArea)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = MasVnrArea, fill= MasVnrArea))
+
+# Does ExterQual affect House Price? [Categorical variable] 
+str(data.train$ExterQual)
+table(data.train$ExterQual)
+data.train$ExterQual <- as.factor(data.train$ExterQual)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = ExterQual, fill= ExterQual))
+
+# Does ExterCond affect House Price? [Categorical variable] 
+str(data.train$ExterCond)
+table(data.train$ExterCond)
+data.train$ExterCond <- as.factor(data.train$ExterCond)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = ExterCond, fill= ExterCond))
+
+# Does Foundation affect House Price? [Categorical variable] 
+str(data.train$Foundation)
+table(data.train$Foundation)
+data.train$Foundation <- as.factor(data.train$Foundation)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Foundation, fill= Foundation))
+
+# Does BsmtQual affect House Price? [Categorical variable] 
+str(data.train$BsmtQual)
+table(data.train$BsmtQual)
+data.train$BsmtQual <- as.character(data.train$BsmtQual)
+
+data.train$BsmtQual[is.na(data.train$BsmtQual)] <- "None"
+data.train$BsmtQual <- as.factor(data.train$BsmtQual)
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = BsmtQual, fill= BsmtQual))
+
+
+# Does BsmtCond affect House Price? [Categorical variable] 
+str(data.train$BsmtCond)
+table(data.train$BsmtCond)
+data.train$BsmtCond[is.na(data.train$BsmtCond)] <- "None"
+data.train$BsmtCond <- as.factor(data.train$BsmtCond)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = BsmtCond, fill= BsmtCond))
+
+# Does BsmtExposure affect House Price? [Categorical variable] 
+str(data.train$BsmtExposure)
+table(data.train$BsmtExposure)
+data.train$BsmtExposure[is.na(data.train$BsmtExposure)] <- "None"
+data.train$BsmtExposure <- as.factor(data.train$BsmtExposure)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = BsmtExposure, fill= BsmtExposure))
+
+# Does BsmtFinType1 affect House Price? [Categorical variable] 
+str(data.train$BsmtFinType1)
+table(data.train$BsmtFinType1)
+data.train$BsmtFinType1[is.na(data.train$BsmtFinType1)] <- "None"
+data.train$BsmtFinType1 <- as.factor(data.train$BsmtFinType1)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = BsmtFinType1, fill= BsmtFinType1))
+
+# Does BsmtFinType2 affect House Price? [Categorical variable] 
+str(data.train$BsmtFinType2)
+table(data.train$BsmtFinType2)
+data.train$BsmtFinType2[is.na(data.train$BsmtFinType2)] <- "None"
+data.train$BsmtFinType2 <- as.factor(data.train$BsmtFinType2)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = BsmtFinType2, fill= BsmtFinType2))
+
+# Does BsmtFinSF2 affect House Price? [Categorical variable] 
+str(data.train$BsmtFinSF2)
+table(data.train$BsmtFinSF2)
+data.train$BsmtFinSF2[is.na(data.train$BsmtFinSF2)] <- "None"
+data.train$BsmtFinSF2 <- as.factor(data.train$BsmtFinSF2)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = BsmtFinSF2, fill= BsmtFinSF2))
+
+# Does BsmtUnfSF affect House Price? [Y] 
+str(data.train$BsmtUnfSF)
+table(data.train$BsmtUnfSF)
+data.train$BsmtUnfSF[is.na(data.train$BsmtUnfSF)] <- 0
+#data.train$BsmtUnfSF <- as.factor(data.train$BsmtUnfSF)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = BsmtUnfSF, y = SalePrice, color= BldgType))
+
+# Does TotalBsmtSF affect House Price? [Y] 
+str(data.train$TotalBsmtSF)
+table(data.train$TotalBsmtSF)
+data.train$TotalBsmtSF[is.na(data.train$TotalBsmtSF)] <- 0
+#data.train$TotalBsmtSF <- as.factor(data.train$TotalBsmtSF)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = TotalBsmtSF, y = SalePrice, color= BldgType))
+
+
+# Does Heating affect House Price? [Categorical Variable] 
+str(data.train$Heating)
+table(data.train$Heating)
+data.train$Heating[is.na(data.train$Heating)] <- "None"
+data.train$Heating <- as.factor(data.train$Heating)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Heating, fill= Heating))
+
+# Does HeatingQC affect House Price? [Categorical Variable] 
+str(data.train$HeatingQC)
+table(data.train$HeatingQC)
+#data.train$HeatingQC[is.na(data.train$HeatingQC)] <- "None"
+data.train$HeatingQC <- as.factor(data.train$HeatingQC)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = HeatingQC, fill= HeatingQC))
+
+# Does CentralAir affect House Price? [Categorical Variable] 
+str(data.train$CentralAir)
+table(data.train$CentralAir)
+#data.train$CentralAir[is.na(data.train$CentralAir)] <- "None"
+data.train$CentralAir <- as.factor(data.train$CentralAir)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = CentralAir, fill= CentralAir))
+
+# Does Electrical affect House Price? [Categorical Variable] 
+str(data.train$Electrical)
+table(data.train$Electrical)
+data.train$Electrical[is.na(data.train$Electrical)] <- "None"
+data.train$Electrical <- as.factor(data.train$Electrical)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Electrical, fill= Electrical))
+
+# Does 1stFlrSF affect House Price? [Y] 
+str(data.train$`1stFlrSF`)
+table(data.train$`1stFlrSF`)
+#data.train$`1stFlrSF`[is.na(data.train$`1stFlrSF`)] <- "None"
+#data.train$`1stFlrSF` <- as.factor(data.train$`1stFlrSF`)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = `1stFlrSF`, y = SalePrice, color= BldgType))
+
+
+# Does 1stFlrSF affect House Price? [Y] 
+str(data.train$`2ndFlrSF`)
+table(data.train$`2ndFlrSF`)
+#data.train$`2ndFlrSF`[is.na(data.train$`2ndFlrSF`)] <- "None"
+#data.train$`2ndFlrSF` <- as.factor(data.train$`2ndFlrSF`)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = `2ndFlrSF`, y = SalePrice, color= BldgType))
+
+# Does LowQualFinSF affect House Price? [Y] 
+str(data.train$LowQualFinSF)
+table(data.train$LowQualFinSF)
+#data.train$LowQualFinSF[is.na(data.train$LowQualFinSF)] <- "None"
+#data.train$LowQualFinSF <- as.factor(data.train$LowQualFinSF)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = LowQualFinSF, y = SalePrice, color= BldgType))
+
+# Does GrLivArea affect House Price? [Y] 
+str(data.train$GrLivArea)
+table(data.train$GrLivArea)
+#data.train$GrLivArea[is.na(data.train$GrLivArea)] <- "None"
+#data.train$GrLivArea <- as.factor(data.train$GrLivArea)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = GrLivArea, y = SalePrice, color= BldgType))
+
+# Does BsmtFullBath affect House Price? [Categorical Variable] 
+str(data.train$BsmtFullBath)
+table(data.train$BsmtFullBath)
+data.train$BsmtFullBath[is.na(data.train$BsmtFullBath)] <- "None"
+data.train$BsmtFullBath <- as.factor(data.train$BsmtFullBath)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = BsmtFullBath, fill= BsmtFullBath))
+
+# Does BsmtHalfBath affect House Price? [Categorical Variable] 
+str(data.train$BsmtHalfBath)
+table(data.train$BsmtHalfBath)
+#data.train$BsmtHalfBath[is.na(data.train$BsmtHalfBath)] <- "None"
+data.train$BsmtHalfBath <- as.factor(data.train$BsmtHalfBath)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = BsmtHalfBath, fill= BsmtHalfBath))
+
+
+# Does FullBath affect House Price? [Categorical Variable] 
+str(data.train$FullBath)
+table(data.train$FullBath)
+#data.train$FullBath[is.na(data.train$FullBath)] <- "None"
+data.train$FullBath <- as.factor(data.train$FullBath)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = FullBath, fill= FullBath))
+
+
+# Does HalfBath affect House Price? [Categorical Variable] 
+str(data.train$HalfBath)
+table(data.train$HalfBath)
+#data.train$HalfBath[is.na(data.train$HalfBath)] <- "None"
+#data.train$HalfBath <- as.factor(data.train$HalfBath)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = HalfBath, fill= HalfBath))
+
+# Does BedroomAbvGr affect House Price? [Categorical Variable] 
+str(data.train$BedroomAbvGr)
+table(data.train$BedroomAbvGr)
+#data.train$BedroomAbvGr[is.na(data.train$BedroomAbvGr)] <- "None"
+#data.train$BedroomAbvGr <- as.factor(data.train$BedroomAbvGr)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = BedroomAbvGr, fill= BedroomAbvGr))
+
+
+# Does KitchenAbvGr affect House Price? [Categorical Variable] 
+str(data.train$KitchenAbvGr)
+table(data.train$KitchenAbvGr)
+#data.train$KitchenAbvGr[is.na(data.train$KitchenAbvGr)] <- "None"
+#data.train$KitchenAbvGr <- as.factor(data.train$KitchenAbvGr)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = KitchenAbvGr, fill= KitchenAbvGr))
+
+
+# Does KitchenQual affect House Price? [Categorical Variable] 
+str(data.train$KitchenQual)
+table(data.train$KitchenQual)
+#data.train$KitchenQual[is.na(data.train$KitchenQual)] <- "None"
+data.train$KitchenQual <- as.factor(data.train$KitchenQual)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = KitchenQual, fill= KitchenQual))
+
+
+# Does TotRmsAbvGrd affect House Price? [Y] 
+str(data.train$TotRmsAbvGrd)
+table(data.train$TotRmsAbvGrd)
+#data.train$TotRmsAbvGrd[is.na(data.train$TotRmsAbvGrd)] <- "None"
+#data.train$TotRmsAbvGrd <- as.factor(data.train$TotRmsAbvGrd)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = TotRmsAbvGrd, fill= TotRmsAbvGrd))
+
+# Does Functional affect House Price? [Y] 
+str(data.train$Functional)
+table(data.train$Functional)
+#data.train$Functional[is.na(data.train$Functional)] <- "None"
+#data.train$Functional <- as.factor(data.train$Functional)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Functional, fill= Functional))
+
+# Does Fireplaces affect House Price? [Y] 
+str(data.train$Fireplaces)
+table(data.train$Fireplaces)
+#data.train$Fireplaces[is.na(data.train$Fireplaces)] <- "None"
+#data.train$Fireplaces <- as.factor(data.train$Fireplaces)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Fireplaces, fill= Fireplaces))
+
+
+# Does FireplaceQu affect House Price? [Categorical Data] 
+str(data.train$FireplaceQu)
+table(data.train$FireplaceQu)
+data.train$FireplaceQu[is.na(data.train$FireplaceQu)] <- "None"
+data.train$FireplaceQu <- as.factor(data.train$FireplaceQu)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = FireplaceQu, fill= FireplaceQu))
+
+# Does GarageType affect House Price? [Categorical Data] 
+str(data.train$GarageType)
+table(data.train$GarageType)
+data.train$GarageType[is.na(data.train$GarageType)] <- "None"
+data.train$GarageType <- as.factor(data.train$GarageType)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = GarageType, fill= GarageType))
+
+# Does GarageYrBlt affect House Price? [y] 
+str(data.train$GarageYrBlt)
+table(data.train$GarageYrBlt)
+#data.train$GarageYrBlt[is.na(data.train$GarageYrBlt)] <- "None"
+#data.train$GarageYrBlt <- as.factor(data.train$GarageYrBlt)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = GarageYrBlt, fill= GarageType))
+
+# Does GarageFinish affect House Price? [Categorical Data] 
+str(data.train$GarageFinish)
+table(data.train$GarageFinish)
+data.train$GarageFinish[is.na(data.train$GarageFinish)] <- "None"
+data.train$GarageFinish <- as.factor(data.train$GarageFinish)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = GarageFinish, fill= GarageFinish))
+
+# Does GarageCars affect House Price? [y] 
+str(data.train$GarageCars)
+table(data.train$GarageCars)
+#data.train$GarageCars[is.na(data.train$GarageCars)] <- "None"
+#data.train$GarageCars <- as.factor(data.train$GarageCars)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = GarageCars, fill= GarageCars))
+
+# Does GarageArea affect House Price? [y] 
+str(data.train$GarageArea)
+table(data.train$GarageArea)
+#data.train$GarageArea[is.na(data.train$GarageArea)] <- "None"
+#data.train$GarageArea <- as.factor(data.train$GarageArea)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = GarageArea, y = SalePrice, color= BldgType))
+
+# Does GarageQual affect House Price? [y] 
+str(data.train$GarageQual)
+table(data.train$GarageQual)
+data.train$GarageQual[is.na(data.train$GarageQual)] <- "None"
+data.train$GarageQual <- as.factor(data.train$GarageQual)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = GarageQual, fill= GarageQual))
+
+
+# Does GarageCond affect House Price? [Categorical Variable] 
+str(data.train$GarageCond)
+table(data.train$GarageCond)
+data.train$GarageCond[is.na(data.train$GarageCond)] <- "None"
+data.train$GarageCond <- as.factor(data.train$GarageCond)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = GarageCond, fill= GarageCond))
+
+# Does PavedDrive affect House Price? [Categorical Variable] 
+str(data.train$PavedDrive)
+table(data.train$PavedDrive)
+#data.train$PavedDrive[is.na(data.train$PavedDrive)] <- "None"
+data.train$PavedDrive <- as.factor(data.train$PavedDrive)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = PavedDrive, fill= PavedDrive))
+
+
+# Does WoodDeckSF affect House Price? [y] 
+str(data.train$WoodDeckSF)
+table(data.train$WoodDeckSF)
+#data.train$WoodDeckSF[is.na(data.train$WoodDeckSF)] <- "None"
+#data.train$WoodDeckSF <- as.factor(data.train$WoodDeckSF)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = WoodDeckSF, y = SalePrice, fill= BldgType))
+
+# Does OpenPorchSF affect House Price? [y] 
+str(data.train$OpenPorchSF)
+table(data.train$OpenPorchSF)
+#data.train$OpenPorchSF[is.na(data.train$OpenPorchSF)] <- "None"
+#data.train$OpenPorchSF <- as.factor(data.train$OpenPorchSF)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = OpenPorchSF, y = SalePrice, color= BldgType))
+
+
+# Does EnclosedPorch affect House Price? [y] 
+str(data.train$EnclosedPorch)
+table(data.train$EnclosedPorch)
+#data.train$EnclosedPorch[is.na(data.train$EnclosedPorch)] <- "None"
+#data.train$EnclosedPorch <- as.factor(data.train$EnclosedPorch)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = EnclosedPorch, y = SalePrice, color= BldgType))
+
+# Does 3SsnPorch affect House Price? [y] 
+str(data.train$`3SsnPorch`)
+table(data.train$`3SsnPorch`)
+#data.train$`3SsnPorch`[is.na(data.train$`3SsnPorch`)] <- "None"
+#data.train$`3SsnPorch` <- as.factor(data.train$`3SsnPorch`)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = `3SsnPorch`, y = SalePrice, color= BldgType))
+
+
+# Does ScreenPorch affect House Price? [y] 
+str(data.train$ScreenPorch)
+table(data.train$ScreenPorch)
+#data.train$ScreenPorch[is.na(data.train$ScreenPorch)] <- "None"
+#data.train$ScreenPorch <- as.factor(data.train$ScreenPorch)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = ScreenPorch, y = SalePrice, color= BldgType))
+
+# Does PoolArea affect House Price? [y] 
+str(data.train$PoolArea)
+table(data.train$PoolArea)
+#data.train$PoolArea[is.na(data.train$PoolArea)] <- "None"
+#data.train$PoolArea <- as.factor(data.train$PoolArea)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = PoolArea, y = SalePrice, color= BldgType))
+
+# Does PoolQC affect House Price? [Categorical Variable] 
+str(data.train$PoolQC)
+table(data.train$PoolQC)
+data.train$PoolQC[is.na(data.train$PoolQC)] <- "None"
+#data.train$PoolQC <- as.factor(data.train$PoolQC)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = PoolQC, fill= PoolQC))
+
+# Does Fence affect House Price? [Categorical Data] 
+str(data.train$Fence)
+table(data.train$Fence)
+data.train$Fence[is.na(data.train$Fence)] <- "None"
+data.train$Fence <- as.factor(data.train$Fence)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = Fence, fill= Fence))
+
+# Does MiscVal affect House Price? [Categorical Data] 
+str(data.train$MiscVal)
+table(data.train$MiscVal)
+#data.train$MiscVal[is.na(data.train$MiscVal)] <- "None"
+#data.train$MiscVal <- as.factor(data.train$MiscVal)
+
+ggplot(data = data.train)+
+  geom_point(mapping = aes(x = MiscVal, y = SalePrice, color= BldgType))
+
+
+# Does MoSold affect House Price? [y] 
+str(data.train$MoSold)
+table(data.train$MoSold)
+#data.train$MoSold[is.na(data.train$MoSold)] <- "None"
+#data.train$MoSold <- as.factor(data.train$MoSold)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = MoSold, fill= BldgType))
+
+
+# Does YrSold affect House Price? [y] 
+str(data.train$YrSold)
+table(data.train$YrSold)
+#data.train$YrSold[is.na(data.train$YrSold)] <- "None"
+#data.train$YrSold <- as.factor(data.train$YrSold)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = YrSold))
+
+
+# Does SaleType affect House Price? [y] 
+str(data.train$SaleType)
+table(data.train$SaleType)
+#data.train$SaleType[is.na(data.train$SaleType)] <- "None"
+data.train$SaleType <- as.factor(data.train$SaleType)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = SaleType, fill = SaleType))
+
+# Does SaleCondition affect House Price? [y] 
+str(data.train$SaleCondition)
+table(data.train$SaleCondition)
+#data.train$SaleCondition[is.na(data.train$SaleCondition)] <- "None"
+data.train$SaleCondition <- as.factor(data.train$SaleCondition)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = SaleCondition, fill = SaleCondition))
+
+
+# Does SaleCondition affect House Price? [Categorical Variable] 
+str(data.train$SaleCondition)
+table(data.train$SaleCondition)
+#data.train$SaleCondition[is.na(data.train$SaleCondition)] <- "None"
+data.train$SaleCondition <- as.factor(data.train$SaleCondition)
+
+ggplot(data = data.train)+
+  geom_bar(mapping = aes(x = SaleCondition, fill = SaleCondition))
+
+
+
